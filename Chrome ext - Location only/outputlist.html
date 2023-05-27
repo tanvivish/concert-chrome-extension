@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concert Line-ups</title>
+</head>
+
+<body>
+    <script>
+        async function fetchData() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'eb26ce1f41msh6e968d6684bce1bp18f0e4jsnc4e68cdf1d5b',
+                'X-RapidAPI-Host': 'concerts-artists-events-tracker.p.rapidapi.com'
+            }
+        };
+        var results = "https://concerts-artists-events-tracker.p.rapidapi.com/location?name="+
+                document.getElementById("location-city").value + "&minDate=" +
+                document.getElementById("start-date").value + "&maxDate=" +
+                document.getElementById("end-date").value +"&page=1";
+        
+                const res = await fetch(results, options)
+        //const res = await fetch('https://concerts-artists-events-tracker.p.rapidapi.com/location?name=San%20Francisco&minDate=2022-10-31&maxDate=2022-11-05&page=1', options)
+        const record = await res.json()
+        document.getElementById("results").innerHTML = results;
+        document.getElementById("concerts").innerHTML = record.data.map(item => `<li>${item.name}</li>`).join('');
+        document.getElementById("date").innerHTML = record.data.map(item => `<li>${item.endDate}</li>`).join('');
+        document.getElementById("location").innerHTML = record.data.map(item => `<li>${item.location.name}</li>`).join('');
+    }
+    fetchData();
+    </script>
+    <div>
+        <h2>Upcoming Concerts</h2>
+        <h4 id="results"></h4>
+        <table>
+            <tr>
+                <td id="concerts"></td>
+                <td id="date"></td>
+                <td id="location"></td>
+            </tr>
+    </div>
+</body>
+<!--<script src="script.js"></script>-->
+
+</html>

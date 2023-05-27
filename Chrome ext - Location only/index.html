@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="popup.css">
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concert Line-ups</title>
+    
+</head>
+<style>
+
+</style> 
+<body> 
+    
+    <div class="container mt-3" style="width: 1000px;">
+       
+    <h2>Upcoming Concerts</h2>
+        
+            <form name="inputform" submit="return false;">
+            </form>
+                <table>
+                    <tr>
+                        <td><label for="locationcity">Location (City):</label><br></td>
+                        <td><input required type="text" id="locationcity" name="locationcity"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="startdate">Start Date:</label><br></td>
+                        <td><input required type="date" id="startdate" name="startdate"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="enddate">End Date:</label><br></td>
+                        <td><input required type="date" id="enddate" name="enddate"><br></td>
+                    </tr>
+                    <!-- <tr>
+                        <td><label for="page">Page</label><br></td>
+                        <td><input required type="page" id="page" name="page"><br></td>
+                    </tr>  -->
+                    <tr>
+                        <td><input onClick="fetchData()" id='bruh' type="submit" value="Submit"><br></td>
+                    </tr>
+                </table>
+              </form>
+    
+    </div>
+    </body>
+    <div class="container mt-3" style="width: 10000px;">
+        <h2>Results (takes a minute, please be patient!):</h2>
+        <p id="location-city"></p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Artist</th>
+                <th>Date</th>
+                <th>Location</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td id="concerts"></td>
+                <td id="date"></td>
+                <td id="location"></td>
+            </tr>
+            </tbody>
+        </table>    
+    </div>
+</body>
+
+</body>
+
+<script src="script.js"></script>
+</html>
+

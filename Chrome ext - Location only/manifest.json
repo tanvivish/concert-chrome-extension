@@ -1,0 +1,18 @@
+{
+    "name": "Upcoming Concerts",
+    "version": "1.0.0",
+    "description": "This is an extension to look up concerts coming to any city in the world",
+    "manifest_version": 3,
+    "author": "Tanvi V",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Upcoming Concerts"
+    },
+    "permissions": [
+        "activeTab"
+      ],
+    "background.service_worker": {
+        "scripts": ["popup.css"]
+    }
+    
+}
